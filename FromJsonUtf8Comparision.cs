@@ -1,10 +1,14 @@
-using System.Text;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 using Jsonics;
 using JsonSrcGen;
+using System.Text;
 
 namespace JsonBenchmark
 {
+    [MemoryDiagnoser]
+    [Orderer(SummaryOrderPolicy.FastestToSlowest)]
+    [RankColumn]
     public class FromJsonUtf8Comparision
     {
         byte[] _json;

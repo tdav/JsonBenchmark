@@ -1,13 +1,17 @@
-using System;
-using System.Text;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Diagnosers;
+using BenchmarkDotNet.Order;
 using Jsonics;
 using Newtonsoft.Json;
-using Utf8Json;
+using System;
+using System.Text;
 using SpanJsonNamespace = SpanJson;
 
 namespace JsonBenchmark
 {
+    [MemoryDiagnoser]
+    [Orderer(SummaryOrderPolicy.FastestToSlowest)]
+    [RankColumn]
     public class ToJsonUtf8Comparision
     {
         JsonTestClass _jsonTestClass;
@@ -26,6 +30,7 @@ namespace JsonBenchmark
             };
             _jsonConverter = JsonFactory.Compile<JsonTestClass>();
         }
+
 
         [Benchmark]
         public ReadOnlySpan<byte> JsonSrcGenUtf8() => _jsonSrcGenConverter.ToJsonUtf8(_jsonTestClass);
@@ -52,7 +57,7 @@ namespace JsonBenchmark
         {
             string json = Jil.JSON.Serialize(_jsonTestClass);
             return Encoding.UTF8.GetBytes(json);
-        } 
+        }
 
         [Benchmark]
         public byte[] SpanJson() => SpanJsonNamespace.JsonSerializer.Generic.Utf8.Serialize(_jsonTestClass);

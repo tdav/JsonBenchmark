@@ -1,7 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Running;
 
 namespace JsonBenchmark
 {
@@ -10,6 +7,7 @@ namespace JsonBenchmark
         public static void Main(string[] args)
         {
             var summary = BenchmarkRunner.Run<ToJsonUtf8Comparision>();
+            var summary1 = BenchmarkRunner.Run<FromJsonUtf8Comparision>();
         }
     }
 }

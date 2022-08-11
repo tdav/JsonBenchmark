@@ -1,12 +1,13 @@
-using System.Text;
 using BenchmarkDotNet.Attributes;
 using Jsonics;
 using JsonSrcGen;
+using System.Text;
 
 namespace JsonBenchmark
 {
     public class FromJsonComparision
     {
+        byte[] _jsonBA;
         string _json;
         IJsonConverter<JsonTestClass> _jsonConverter;
 
@@ -18,6 +19,9 @@ namespace JsonBenchmark
 
         [Benchmark]
         public JsonTestClass Jsonics() => _jsonConverter.FromJson(_json);
+
+
+
 
         [Benchmark]
         public JsonTestClass NewtonsoftJson() => Newtonsoft.Json.JsonConvert.DeserializeObject<JsonTestClass>(_json);
