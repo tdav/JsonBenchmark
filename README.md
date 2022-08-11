@@ -3,7 +3,7 @@ Project for compairing the performance of .net JSON libraries
 
 ## Usage
 To run do:
-    dotnet run -c Release 
+###    dotnet run -c Release 
 
 
 BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1826 (21H1/May2021Update)
@@ -12,7 +12,7 @@ Intel Core i5-10400F CPU 2.90GHz, 1 CPU, 12 logical and 6 physical cores
   [Host]     : .NET 7.0.0 (7.0.22.32404), X64 RyuJIT
   DefaultJob : .NET 7.0.0 (7.0.22.32404), X64 RyuJIT
   
-# ToJson  
+## ToJson  
   
 |         Method |      Mean |    Error |   StdDev | Rank |  Gen 0 | Allocated |
 |--------------- |----------:|---------:|---------:|-----:|-------:|----------:|
@@ -25,7 +25,7 @@ Intel Core i5-10400F CPU 2.90GHz, 1 CPU, 12 logical and 6 physical cores
 |     Newtonsoft | 681.95 ns | 3.137 ns | 2.935 ns |    7 | 0.2537 |   1,592 B |
 
 
-# FromJsonUtf8
+## FromJson
 
 
 |         Method |       Mean |    Error |  StdDev | Rank |  Gen 0 |  Gen 1 | Allocated |
