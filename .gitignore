@@ -6,3 +6,8 @@
 BenchmarkDotNet.Artifacts
 
 .vscode/tasks.json
+/.vs/JsonBenchmark/FileContentIndex
+/.vs/JsonBenchmark/v17
+*.v2
+*.v5
+/.vs
